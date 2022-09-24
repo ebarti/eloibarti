@@ -1,0 +1,16 @@
+[
+  {
+    "name": "Illinois Institute of Technology",
+    "title": "Master of Science in Aerospace and Mechanical Engineering",
+    "years": "2013 - 2014",
+    "img": "iit",
+    "gpa": "GPA: 4.0/4.0"
+  },
+  {
+    "name": "Polytechnic University of Catalonia",
+    "title": "Bachelor of Science in Aerospace Engineering",
+    "years": "2008 - 2013",
+    "img": "upc",
+    "gpa": "GPA: 7.2/10.0"
+  }
+]

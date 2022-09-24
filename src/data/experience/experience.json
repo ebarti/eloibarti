@@ -1,0 +1,32 @@
+[
+  {
+    "name": "Glovo",
+    "title": "Software Engineer IV",
+    "years": "Jan 2021 - Present",
+    "img": "glovo"
+  },
+  {
+    "name": "AERQ",
+    "title": "Software Engineer",
+    "years": "Oct 2020 - Jan 2021",
+    "img": "aerq"
+  },
+  {
+    "name": "Dassault Systèmes",
+    "title": "Robotics R&D Development Manager",
+    "years": "Nov 2018 - Sep 2020",
+    "img": "ds"
+  },
+  {
+    "name": "Tesla",
+    "title": "Software Engineer",
+    "years": "Feb 2016 - Nov 2018",
+    "img": "tesla"
+  },
+  {
+    "name": "Perceptron",
+    "title": "Project Engineer",
+    "years": "Aug 2014 - Jan 2016",
+    "img": "perceptron"
+  }
+]
