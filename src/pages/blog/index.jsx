@@ -6,13 +6,13 @@ import Header from '../../components/PageLayout/Header';
 
 import SidebarWrapper from '../../components/PageLayout/Sidebar';
 import PostCard from '../../components/PostCard';
-import SEO from '../../components/Seo';
+import Head from '../../components/Seo';
 
 const Blog = ({ data }) => (
   <Layout className="outerPadding">
     <Layout className="container">
       <Header />
-      <SEO
+      <Head
         title="Blog"
         description="I like blogging about various web technologies and other stuff related to
           javascript and other trends like graphql, prisma etc. This blog expresses my views of various technologies

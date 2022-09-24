@@ -3,7 +3,7 @@ title: A Quick Dive into Heat Transfer (II)
 tags: [ cpp, math, metal ]
 path: blog/a-quick-dive-into-heat-transfer-ii
 date: 2021-04-22T18:19:12.910Z
-cover: ./cover.jpg
+cover: ./cover2.jpg
 excerpt: Continuation of the heat transfer problem
 ---
 
@@ -14,6 +14,7 @@ So, in my last post I (sort of) detailed a quasi-static mathematical model of th
 In order to not be overly obnoxious with the mathematical formulae, I will use this post to explain how I approached this problem from a programming perspective.
 
 Let's create a Flowchart depicting what our Gauss-Seidel solver will do to resolve the matrix-based equations we previously found:
+
 
 ```dot
 digraph graphname {
@@ -36,9 +37,11 @@ digraph graphname {
 
 We will initially model this problem using C++. As with any coding problem we face, we should aim to obtain a non-optimized solution to the problem first, then focus on optimizing this solution. 
 
-The full version of all code used here can be found in my [Github](https://github.com/ebarti/DGTCM)
+The full version of all code used here can be found in my [GitHub](https://github.com/ebarti/DGTCM)
 
 A naive implementation of a 3-D Matrix in C++ could be:
+
+
 ```cpp
 class Matrix {
 public:
@@ -65,6 +68,7 @@ This implementation has multiple issues:
 To solve these problems, let's flatten this 3D matrix into a 1D vector, and define a mapping function, `at` that will map a 3-D element (x,y,z) into
 an element number W in the 1D vector. 
 
+
 ```cpp
 // Matrix.h
 class Matrix {
@@ -85,4 +89,3 @@ double Matrix::at(const unsigned int & x, const unsigned int & y, const unsigned
 }
 ```
 
-// This is a work in progress :)

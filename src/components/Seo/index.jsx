@@ -17,7 +17,7 @@ const detailsQuery = graphql`
   }
 `;
 
-function SEO({
+function Head({
                  title,
                  description,
                  path,
@@ -46,58 +46,26 @@ function SEO({
                 );
 
                 return (
-                    <Helmet
-                        title={title} // Page title
-                        titleTemplate={`%s | ${Config.siteTitle}`}
-                        meta={
-                            [
-                                {name: 'description', content: description}, // Page description
-                                /* Open Graph */
-                                {property: 'og:title', content: title},
-                                {property: 'og:type', content: contentType || 'website'},
-                                {property: 'og:url', content: pageUrl},
-                                {property: 'og:description', content: description},
-                                {property: 'og:image', content: metaImageUrl},
-                                {property: 'og:image:alt', content: description},
-                                {property: 'og:site_name', content: Config.siteTitle},
-                                {property: 'og:locale', content: lang || 'en_US'},
-                                /* Twitter card */
-                                {name: 'twitter:card', content: 'summary_large_image'},
-                                {name: 'twitter:title', content: title},
-                                {name: 'twitter:description', content: description},
-                                {name: 'twitter:image', content: metaImageUrl},
-                                {name: 'twitter:image:alt', content: description},
-                                {name: 'twitter:site', content: Config.author},
-                                {name: 'twitter:creator', content: Config.author},
-                            ]
-                                .concat(metaKeywords) // Keywords
-                                .concat(meta || []) // Other provided metadata
-                        }
-                        link={[
-                            {rel: 'canonical', href: pageUrl}, // Canonical url
-                        ]
-                            // Translated versions of page
-                            .concat(
-                                translations
-                                    ? translations.map((obj) => ({
-                                        rel: 'alternate',
-                                        hreflang: obj.hreflang,
-                                        href: Utils.resolvePageUrl(
-                                            Config.siteUrl,
-                                            Config.pathPrefix,
-                                            obj.path,
-                                        ),
-                                    }))
-                                    : [],
-                            )}
-                    />
+                    <>
+                        <title>{title}</title>
+
+                        <meta name="description" content={description} />
+                        <meta name="image" content={metaImageUrl} />
+                        <meta name="twitter:card" content="summary_large_image" />
+                        <meta name="twitter:title" content={title} />
+                        <meta name="twitter:url" content={pageUrl} />
+                        <meta name="twitter:description" content={description} />
+                        <meta name="twitter:image" content={metaImageUrl} />
+                        <meta name="twitter:creator" content={Config.author} />
+                        <link rel="favicon.png" href="static/favicon.png" />
+                    </>
                 );
             }}
         />
     );
 }
 
-SEO.propTypes = {
+Head.propTypes = {
     title: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
     path: PropTypes.string.isRequired,
@@ -119,7 +87,7 @@ SEO.propTypes = {
     ),
 };
 
-SEO.defaultProps = {
+Head.defaultProps = {
     lang: 'en_US',
     contentType: 'website',
     imageUrl: null,
@@ -128,4 +96,4 @@ SEO.defaultProps = {
     meta: [],
 };
 
-export default SEO;
+export default Head;

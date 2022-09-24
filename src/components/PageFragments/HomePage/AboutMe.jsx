@@ -1,12 +1,12 @@
 import React from 'react';
 
-import SEO from '../../Seo';
+import Head from '../../Seo';
 
 const AboutMe = () => {
   return (
     <>
       <div>
-        <SEO
+        <Head
           title="About"
           description="My name is Eloi Barti Tremoleda, and I am a senior lead software engineer based in Barcelona, Spain."
           path=""

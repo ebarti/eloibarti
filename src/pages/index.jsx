@@ -6,7 +6,7 @@ import SidebarWrapper from '../components/PageLayout/Sidebar';
 import AboutMe from '../components/PageFragments/HomePage/AboutMe';
 import Skills from '../components/PageFragments/HomePage/SkillProgress';
 import Experiences from '../components/PageFragments/HomePage/Experiences';
-
+import Educations from '../components/PageFragments/HomePage/Educations'
 
 const MyLayout = () => (
   <Layout className="outerPadding">
@@ -16,6 +16,7 @@ const MyLayout = () => (
         <>
           <AboutMe />
           <Experiences />
+          <Educations />
           <Skills />
         </>
       </SidebarWrapper>

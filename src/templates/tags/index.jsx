@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import {graphql} from 'gatsby';
 import {Col, Layout, Row,} from 'antd';
 /* App imports */
-import SEO from '../../components/Seo';
+import Head from '../../components/Seo';
 import Header from '../../components/PageLayout/Header';
 import PostCard from '../../components/PostCard';
 import SidebarWrapper from '../../components/PageLayout/Sidebar';
@@ -24,7 +24,7 @@ const TagPage = ({data, pageContext}) => {
         <Layout className="outerPadding">
             <Layout className="container">
                 <Header/>
-                <SEO
+                <Head
                     title={tagName}
                     description={`All post about ${tagName}. ${Config.tags[tag].description} `}
                     path={Utils.resolvePageUrl(tagPagePath, tag)}

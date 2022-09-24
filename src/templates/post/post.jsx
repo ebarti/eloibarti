@@ -4,7 +4,7 @@ import { graphql } from 'gatsby';
 import { GatsbyImage } from 'gatsby-plugin-image';
 import Header from '../../components/PageLayout/Header';
 import SidebarWrapper from '../../components/PageLayout/Sidebar';
-import SEO from '../../components/Seo';
+import Head from '../../components/Seo';
 import Comment from '../../components/Comment';
 import Config from '../../../config';
 import Utils from '../../utils/pageUtils';
@@ -16,7 +16,7 @@ import 'prismjs/themes/prism-tomorrow.css';
 const Post = ({ data }) => {
   const { html, frontmatter } = data.markdownRemark;
   const {
-    title, cover: { childImageSharp: { fluid } }, excerpt, path,
+    title, cover: { childImageSharp: { gatsbyImageData } }, excerpt, path,
   } = frontmatter;
 
   const canonicalUrl = Utils.resolvePageUrl(
@@ -27,7 +27,7 @@ const Post = ({ data }) => {
   return (
     <Layout className="outerPadding">
       <Layout className="container">
-        <SEO
+        <Head
           title={title}
           description={excerpt}
           path={path}
@@ -38,7 +38,7 @@ const Post = ({ data }) => {
           <div className="marginTopTitle">
             <h1>{title}</h1>
             <div className={bannerImgContainer}>
-              <GatsbyImage image={bannerImg} fluid={fluid} title={excerpt} alt={title} />
+              <GatsbyImage image={gatsbyImageData} title={excerpt} alt={title} />
             </div>
             <article className={blogArticle} dangerouslySetInnerHTML={{ __html: html }} />
             <Comment pageCanonicalUrl={canonicalUrl} pageId={title} />

@@ -3,6 +3,7 @@ import React from 'react';
 import Experience from '../../Experience/Experience';
 import { graphql, StaticQuery } from 'gatsby';
 import PropTypes from 'prop-types';
+import { experiences, } from './experiences.module.less';
 
 const Experiences = ({ data }) => {
   const { allExperienceJson: { edges } } = data;
@@ -10,7 +11,8 @@ const Experiences = ({ data }) => {
     (x) => ({ [x.node.name]: x.node })
   ));
   return (
-    <div>
+    <div className={experiences}>
+      <center><h2>PROFESSIONAL EXPERIENCES</h2></center>
       {
         edges.map((x) => (
           <Experience

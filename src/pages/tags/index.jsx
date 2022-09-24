@@ -6,7 +6,7 @@ import {
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 import Header from '../../components/PageLayout/Header';
-import SEO from '../../components/Seo';
+import Head from '../../components/Seo';
 import SidebarWrapper from '../../components/PageLayout/Sidebar';
 import TagCard from '../../components/TagCard';
 import Config from '../../../config';
@@ -26,7 +26,7 @@ const Tags = ({ data }) => {
     <Layout className="outerPadding">
       <Layout className="container">
         <Header />
-        <SEO
+        <Head
           title="Tags"
           description="This is the list of tags I've used in my blog posts."
           path="tags"

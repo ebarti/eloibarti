@@ -1,39 +1,22 @@
 const config = require('./config');
 
 module.exports = [
-    'gatsby-plugin-react-helmet',
-    'gatsby-transformer-sharp',
-    'gatsby-plugin-sharp',
-    'gatsby-plugin-less',
-    'gatsby-plugin-offline',
+
     'gatsby-plugin-image',
+    'gatsby-plugin-sharp',
+    'gatsby-transformer-sharp',
+    'gatsby-transformer-json',
+    {
+        resolve: `gatsby-source-filesystem`,
+        options: {
+            path: `${__dirname}/src/data`,
+        },
+    },
     {
         resolve: 'gatsby-source-filesystem',
         options: {
             name: 'images',
             path: `${__dirname}/src/images`,
-        },
-    },
-    'gatsby-transformer-json',
-    {
-        resolve: `gatsby-source-filesystem`,
-        options: {
-            path: `./src/data/`,
-        },
-    },
-    {
-        resolve: 'gatsby-plugin-manifest',
-        options: {
-            name: 'Eloi Barti',
-            short_name: 'Eloi Barti',
-            start_url: '/',
-            background_color: '#304CFD',
-            theme_color: '#304CFD',
-            display: 'standalone',
-            icon: 'static/favicon.png', // This path is relative to the root of the site.
-            crossOrigin: `use-credentials`,
-            legacy: true, // this will add apple-touch-icon links to <head>. Required for
-            // versions prior to iOS 11.3.
         },
     },
     {
@@ -47,31 +30,33 @@ module.exports = [
         resolve: 'gatsby-transformer-remark',
         options: {
             plugins: [
+                'gatsby-remark-graphviz',
                 {
                     resolve: 'gatsby-remark-katex',
                     options: {
                         strict: 'ignore',
                     },
                 },
-                {
-                    resolve: 'gatsby-remark-images',
-                    options: {
-                        maxWidth: 1000,
-                        quality: 80,
-                        showCaptions: true,
-                        linkImagesToOriginal: false,
-                    },
-                },
-                {
-                    resolve: 'gatsby-remark-external-links',
-                    options: {
-                        rel: 'nofollow',
-                    },
-                },
-                'gatsby-remark-graphviz',
+                // {
+                //     resolve: 'gatsby-remark-images',
+                //     options: {
+                //         maxWidth: 1000,
+                //         quality: 80,
+                //         showCaptions: true,
+                //         linkImagesToOriginal: false,
+                //     },
+                // },
                 'gatsby-remark-prismjs',
             ],
         },
+    },
+    {
+      resolve: 'gatsby-plugin-offline',
+      options: {
+          workboxConfig: {
+              globPatterns: ['**/static*']
+          }
+      }
     },
     {
         resolve: 'gatsby-plugin-i18n',
@@ -80,6 +65,7 @@ module.exports = [
             useLangKeyLayout: false,
         },
     },
+    'gatsby-plugin-less',
     'gatsby-plugin-sitemap',
     'gatsby-plugin-robots-txt',
     {

@@ -3,12 +3,12 @@ import {Layout} from 'antd';
 import Header from '../../components/PageLayout/Header';
 import SidebarWrapper from '../../components/PageLayout/Sidebar';
 import ContactForm from '../../components/PageFragments/ContactForm';
-import SEO from '../../components/Seo';
+import Head from '../../components/Seo';
 
 const Contact = () => (
     <Layout className="outerPadding">
         <Layout className="container">
-            <SEO
+            <Head
                 title="Contact"
                 description="Want to get in touch? Drop me a line!"
                 path="/contact"
