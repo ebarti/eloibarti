@@ -11,7 +11,7 @@ const Educations = ({data}) => {
     ));
     return (
         <div className={educations}>
-            <center><h2>EDUCATION</h2></center>
+            <h2>Education</h2>
             {
                 edges.map((x) => (
                     <Education

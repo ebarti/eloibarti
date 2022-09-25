@@ -12,7 +12,7 @@ const Experiences = ({data}) => {
     ));
     return (
         <div className={experiences}>
-            <center><h2>PROFESSIONAL EXPERIENCES</h2></center>
+            <h2>Professional Experience</h2>
             {
                 edges.map((x) => (
                     <Experience

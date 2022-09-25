@@ -9,7 +9,7 @@ const Experience = (data) => {
     return (
         <div className={experience}>
             <Row gutter={[8, 8]}>
-                <Col xs={4} md={4} lg={3} xl={3}>
+                <Col xs={5} md={4} lg={3} xl={3}>
                     <div>
                         <ImageCard
                             alt={''}
@@ -30,7 +30,7 @@ const Experience = (data) => {
                 </Col>
                 <Col xs={{span: 6, offset: 1}} xl={{span: 6, offset: 3}}>
                     <Row justify={'end'}>
-                        <h4>{years}</h4>
+                        <h5>{years}</h5>
                     </Row>
                 </Col>
             </Row>

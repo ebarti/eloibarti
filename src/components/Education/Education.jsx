@@ -10,7 +10,7 @@ const Education = (data) => {
     return (
         <div className={education}>
             <Row gutter={[8, 8]}>
-                <Col xs={4} md={4} lg={3} xl={3}>
+                <Col xs={5} md={4} lg={3} xl={3}>
                     <div>
                         <ImageCard
                             alt={''}
@@ -31,10 +31,10 @@ const Education = (data) => {
                 </Col>
                 <Col xs={{span: 6, offset: 1}} xl={{span: 6, offset: 3}}>
                     <Row justify={"end"}>
-                        <h4>{years}</h4>
+                        <h5>{years}</h5>
                     </Row>
                     <Row justify={"end"}>
-                        <h5>{gpa}</h5>
+                        <h6>{gpa}</h6>
                     </Row>
                 </Col>
             </Row>
