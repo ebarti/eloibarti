@@ -1,8 +1,7 @@
 /* Vendor imports */
 import React from 'react';
 import PropTypes from 'prop-types';
-import {Helmet} from 'react-helmet';
-import {StaticQuery, graphql} from 'gatsby';
+import {graphql, StaticQuery} from 'gatsby';
 /* App imports */
 import Config from '../../../config';
 import Utils from '../../utils/pageUtils';
@@ -18,16 +17,16 @@ const detailsQuery = graphql`
 `;
 
 function Head({
-                 title,
-                 description,
-                 path,
-                 lang,
-                 keywords,
-                 contentType,
-                 imageUrl,
-                 translations,
-                 meta,
-             }) {
+                  title,
+                  description,
+                  path,
+                  lang,
+                  keywords,
+                  contentType,
+                  imageUrl,
+                  translations,
+                  meta,
+              }) {
     return (
         <StaticQuery
             query={detailsQuery}
@@ -49,15 +48,15 @@ function Head({
                     <>
                         <title>{title}</title>
 
-                        <meta name="description" content={description} />
-                        <meta name="image" content={metaImageUrl} />
-                        <meta name="twitter:card" content="summary_large_image" />
-                        <meta name="twitter:title" content={title} />
-                        <meta name="twitter:url" content={pageUrl} />
-                        <meta name="twitter:description" content={description} />
-                        <meta name="twitter:image" content={metaImageUrl} />
-                        <meta name="twitter:creator" content={Config.author} />
-                        <link rel="favicon.png" href="static/favicon.png" />
+                        <meta name="description" content={description}/>
+                        <meta name="image" content={metaImageUrl}/>
+                        <meta name="twitter:card" content="summary_large_image"/>
+                        <meta name="twitter:title" content={title}/>
+                        <meta name="twitter:url" content={pageUrl}/>
+                        <meta name="twitter:description" content={description}/>
+                        <meta name="twitter:image" content={metaImageUrl}/>
+                        <meta name="twitter:creator" content={Config.author}/>
+                        <link rel="favicon.png" href="static/favicon.png"/>
                     </>
                 );
             }}

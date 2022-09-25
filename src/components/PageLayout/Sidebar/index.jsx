@@ -1,9 +1,12 @@
-import React from 'react';
-import {Affix, Col, Layout, Row,} from 'antd';
-import FA from 'react-fontawesome';
-import FeatherIcon from 'feather-icons-react';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import {globalHistory} from '@reach/router';
+import {Affix, Col, Layout, Row,} from 'antd';
+import FeatherIcon from 'feather-icons-react';
+import React from 'react';
+import FA from 'react-fontawesome';
+
+import Config from '../../../../config';
+import useWindowSize from '../../../utils/hooks';
 import {
     background,
     badge,
@@ -17,8 +20,6 @@ import {
     sideBar404Radius,
     sidebarContent,
 } from './sidebar.module.less';
-import {useWindowSize} from '../../../utils/hooks';
-import Config from '../../../../config';
 
 const {Content} = Layout;
 const {
@@ -61,7 +62,7 @@ const DomContent = () => (
 );
 
 const Sidebar = (props) => {
-    const [width] = useWindowSize();
+    const {width} = useWindowSize();
     const {children} = props;
     const {pathname} = globalHistory.location;
     let domContent = <DomContent/>;

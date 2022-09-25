@@ -2,11 +2,12 @@ import {graphql, StaticQuery} from 'gatsby';
 import PropTypes from "prop-types";
 import React from "react";
 import Education from "../../Education/Education";
-import { educations, } from './educations.module.less';
-const Educations = ({ data }) => {
-    const { allEducationJson: { edges } } = data;
+import {educations,} from './educations.module.less';
+
+const Educations = ({data}) => {
+    const {allEducationJson: {edges}} = data;
     let images = Object.assign({}, ...data.allFile.edges.map(
-        (x) => ({ [x.node.name]: x.node })
+        (x) => ({[x.node.name]: x.node})
     ));
     return (
         <div className={educations}>

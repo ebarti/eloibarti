@@ -22,6 +22,10 @@ function ContactForm() {
         document.body.appendChild(script)
     }, [])
 
+    const recaptchaConfig = {
+        key: process.env.SITE_RECAPTCHA_KEY,
+        secret: process.env.SITE_RECAPTCHA_SECRET,
+    }
 
     return (
         <Formik
@@ -92,7 +96,7 @@ function ContactForm() {
                 </div>
                 <Recaptcha
                     className="w-form-formrecaptcha"
-                    sitekey={process.env.SITE_RECAPTCHA_KEY}
+                    sitekey={recaptchaConfig.key}
                     render="explicit"
                     theme="dark"
                     size="normal"

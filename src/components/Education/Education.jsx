@@ -3,7 +3,7 @@ import '../../styles/index.less';
 
 import {Col, Row} from 'antd';
 import ImageCard from '../Image/Image';
-import { education, } from './education.module.less'
+import {education,} from './education.module.less'
 
 const Education = (data) => {
     const {img, university, title, years, gpa} = data;
@@ -21,7 +21,7 @@ const Education = (data) => {
                             }}/>
                     </div>
                 </Col>
-                <Col xs={8} md={10} lg={12} >
+                <Col xs={8} md={10} lg={12}>
                     <Row>
                         <h3>{university}</h3>
                     </Row>

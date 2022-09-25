@@ -1,5 +1,5 @@
 import React from 'react';
-import { Layout } from 'antd';
+import {Layout} from 'antd';
 import Header from '../components/PageLayout/Header';
 
 import SidebarWrapper from '../components/PageLayout/Sidebar';
@@ -9,19 +9,19 @@ import Experiences from '../components/PageFragments/HomePage/Experiences';
 import Educations from '../components/PageFragments/HomePage/Educations'
 
 const MyLayout = () => (
-  <Layout className="outerPadding">
-    <Layout className="container">
-      <Header />
-      <SidebarWrapper>
-        <>
-          <AboutMe />
-          <Experiences />
-          <Educations />
-          <Skills />
-        </>
-      </SidebarWrapper>
+    <Layout className="outerPadding">
+        <Layout className="container">
+            <Header/>
+            <SidebarWrapper>
+                <>
+                    <AboutMe/>
+                    <Experiences/>
+                    <Educations/>
+                    <Skills/>
+                </>
+            </SidebarWrapper>
+        </Layout>
     </Layout>
-  </Layout>
 );
 
 export default MyLayout;
