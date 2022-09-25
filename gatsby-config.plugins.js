@@ -62,16 +62,16 @@ module.exports = [
           }
       }
     },
-    {
-        resolve: 'gatsby-plugin-i18n',
-        options: {
-            langKeyDefault: config.defaultLanguage,
-            useLangKeyLayout: false,
-        },
-    },
     'gatsby-plugin-less',
     'gatsby-plugin-sitemap',
-    'gatsby-plugin-robots-txt',
+    {
+        resolve: 'gatsby-plugin-robots-txt',
+        options: {
+            host: 'https://www.eloibarti.com',
+            sitemap: 'https://www.eloibarti.com/sitemap.xml',
+            policy: [{userAgent: '*', allow: '/'}]
+        }
+    },
     {
         resolve: 'gatsby-plugin-antd',
         options: {
