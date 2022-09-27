@@ -41,15 +41,15 @@ module.exports = [
                         strict: 'ignore',
                     },
                 },
-                // {
-                //     resolve: 'gatsby-remark-images',
-                //     options: {
-                //         maxWidth: 1000,
-                //         quality: 80,
-                //         showCaptions: true,
-                //         linkImagesToOriginal: false,
-                //     },
-                // },
+                {
+                    resolve: 'gatsby-remark-images',
+                    options: {
+                        maxWidth: 600,
+                        quality: 80,
+                        showCaptions: true,
+                        linkImagesToOriginal: false,
+                    },
+                },
                 'gatsby-remark-prismjs',
             ],
         },

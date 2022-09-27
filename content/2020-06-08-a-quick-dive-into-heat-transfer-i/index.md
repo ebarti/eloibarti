@@ -7,6 +7,8 @@ cover: ./cover.jpg
 excerpt: In this post I showcase a short - but interesting - application of numerical methods by solving a quasi-static heat transfer model.
 ---
 
+### Introduction
+
 This is a rather short -- but useful -- project I did for a heat and mass transfer class within my Aerospace Engineering degree. I really enjoyed this class, so this project was one of my favorite parts of this course.
 
 When selecting a suitable material for a certain application, its mechanical properties are one of the key decision makers. Mechanical properties can be altered by thermal processes, in which the material is heated and cooled at known (or predicted) rates, in order to modify what is known as the microstructure.
@@ -17,24 +19,25 @@ The cooling curve of an eutectoid steel is a very well-known topic to material r
 
 This project aims to calculate the cooling profile of any point within a given prismatic steel part after it undergoes a tempering process. To solve this problem, we will enforce the heat transfer governing equation on the part, discretizing the its volume with a technique known as the finite volumes method.
 
-![](./post-2-prism.png)
+![](../2020-06-08-a-quick-dive-into-heat-transfer-i/post-2-prism.png)
 
 As the cooling process is time dependent, we will use three methods of time discretization: implicit, explicit and Crank-Nicolson. We will define the discretized heat transfer equations with a variable to switch between time discretization modes, and see how it affects our results. We will solve this equation using the Gauss-Seidel iterative method, which is fairly rudimentary but yields acceptable results with little investment.
 
+### Assumptions
+
 Let's get on it! First, let us start with a few assumptions:
-<ul>
-    <li>The piece is a 3-D rectangular prismatic part with known dimensions</li>
-    <li>The thermal conductivity of the material is known and depends on its temperature</li>
-    <li>The material‚ heat capacity is known and also depends on temperature</li>
-    <li>The cooling fluid thermal diffusivity is known and depends on its temperature</li>
-</ul>
+- The piece is a 3-D rectangular prismatic part with known dimensions
+- The thermal conductivity of the material is known and depends on its temperature
+- The material‚ heat capacity is known and also depends on temperature
+- The cooling fluid thermal diffusivity is known and depends on its temperature
 
-A quick note on the notation I will be using when defining the governing equations per finite volume.
+<br/>
 
-<ul>
-    <li>When a variable is sub-indexed with i,j,k I will be referring to the state of the variable in the finite volume located at (i,j,k)</li>
-    <li>When a variable is super-indexed with a vector, it will refer to the flux of said variable in the direction of the vector.</li>
-</ul>
+**A quick note on the notation I will be using when defining the governing equations per finite volume.**
+- When a variable is sub-indexed with i,j,k I will be referring to the state of the variable in the finite volume located at (i,j,k).
+- When a variable is super-indexed with a vector, it will refer to the flux of said variable in the direction of the vector.
+
+### Mathematical model
 
 The equation governing heat transfer within the part can be defined as:
 
@@ -135,22 +138,6 @@ T_{i,j,k-1}\beta \frac{{\lambda }_{\left(i,j,k-1\right)-(i,j,k)}S_{\left(i,j,k-1
 \end{align}
 $$
 
-Finally,
-
-$$
-\begin{align}
-\begin{split}
-&T^{n+1}_{i,j,k}\sum{a^{n+1}_p}=T_{i-1,j,k}\sum{a^{n+1}_{i-1}}+T_{i+1,j,k}\sum{a^{n+1}_{i+1}}+T_{i,j-1,k}\sum{a^{n+1}_{j-1}}+ \\
-&T_{i,j+1,k}\sum{a^{n+1}_{j+1}}+T_{i,j,k-1}\sum{a^{n+1}_{k-1}}+T_{i,j,k+1}\sum{a^{n+1}_{k+1}}+b^{n+1}_p
-\end{split}
-\end{align}
-$$
-
-On the next post, I will detail the specific equations for the prism's surface, along with any applicable boundary conditions. Then, we will be set to model this in C++ :)
-
-
-
-
 $$
 \begin{align}
 T_{i,j,k+1}\beta\frac{{\lambda }_{\left(i,j,k\right)-(i,j,k+1)}S_{\left(i,j,k\right)-(i,j,k+1)}}{d_{\left(i,j,k\right)-(i,j,k+1)}}=T_{i,j,k+1}\sum{a^{n+1}_{k+1}}
@@ -163,6 +150,7 @@ $$
 \end{align}
 $$
 
+
 Finally,
 
 $$
@@ -175,5 +163,3 @@ $$
 $$
 
 On the next post, I will detail the specific equations for the prism's surface, along with any applicable boundary conditions. Then, we will be set to model this in C++ :)
-
-
