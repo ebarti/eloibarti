@@ -11,7 +11,7 @@ const Experiences = ({data}) => {
         (x) => ({[x.node.name]: x.node})
     ));
     return (
-        <div className={experiences}>
+        <div className={experiences} >
             <h2>Professional Experience</h2>
             {
                 edges.map((x) => (
@@ -19,6 +19,7 @@ const Experiences = ({data}) => {
                         img={images[x.node.img]}
                         company={x.node.name}
                         title={x.node.title}
+                        location={x.node.location}
                         years={x.node.years}
                     />
                 ))
@@ -36,6 +37,7 @@ Experiences.propTypes = {
                         name: PropTypes.string.isRequired,
                         img: PropTypes.string.isRequired,
                         title: PropTypes.string.isRequired,
+                        location: PropTypes.string.isRequired,
                         years: PropTypes.string.isRequired,
                     }).isRequired,
                 }).isRequired,
@@ -67,6 +69,7 @@ export default function ExperiencesQuery(props) {
                       name
                       img
                       title
+                      location
                       years
                     }
                   }

@@ -1,15 +1,14 @@
 import React from 'react';
 
-import {Col, Row} from 'antd';
 import ImageCard from '../Image/Image';
 import {experience,} from './experience.module.less'
 
 const Experience = (data) => {
-    const {img, company, title, years} = data;
+    const {img, company, title, years, location} = data;
     return (
-        <div className={experience}>
-            <Row gutter={[8, 8]}>
-                <Col xs={5} md={4} lg={3} xl={3}>
+        <div className={`${experience}`}>
+            <div className="grid grid-cols-16">
+                <div className="col-span-2 xs:col-span-4 lg:col-span-2">
                     <div>
                         <ImageCard
                             alt={''}
@@ -19,21 +18,24 @@ const Experience = (data) => {
                                 width: 60
                             }}/>
                     </div>
-                </Col>
-                <Col xs={8} md={10} lg={12}>
-                    <Row>
+                </div>
+                <div className="xs:col-span-8 lg:col-span-12 row-span-2 flex-auto" >
+                    <div>
                         <h3>{company}</h3>
-                    </Row>
-                    <Row>
+                    </div>
+                    <div>
                         <h5>{title}</h5>
-                    </Row>
-                </Col>
-                <Col xs={{span: 6, offset: 1}} xl={{span: 6, offset: 3}}>
-                    <Row justify={'end'}>
+                    </div>
+                </div>
+                <div className="xs:col-span-3 lg:col-span-3 grid-rows-2 flex-auto">
+                    <div className="col-span-3 row-span-1">
                         <h5>{years}</h5>
-                    </Row>
-                </Col>
-            </Row>
+                    </div>
+                    <div className="col-span-3 row-span-1">
+                        <h5>{location}</h5>
+                    </div>
+                </div>
+            </div>
         </div>
     )
 };

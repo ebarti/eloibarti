@@ -3,42 +3,49 @@
     "name": "Glovo",
     "title": "Software Engineer IV",
     "years": "Jan 2021 - Present",
+    "location": "Barcelona, Spain",
     "img": "glovo"
   },
   {
     "name": "Datadog",
     "title": "Security Customer Advisory Board Member",
     "years": "Aug 2022 - Present",
+    "location": "Barcelona, Spain",
     "img": "datadog"
   },
   {
     "name": "Blockmate",
     "title": "Freelance Software Engineer",
     "years": "Jan 2022 - Present",
+    "location": "Remote",
     "img": "blockmate"
   },
   {
     "name": "AERQ",
     "title": "Software Engineer",
     "years": "Oct 2020 - Jan 2021",
+    "location": "Hamburg, Germany",
     "img": "aerq"
   },
   {
     "name": "Dassault Systèmes",
     "title": "Robotics R&D Development Manager",
     "years": "Nov 2018 - Sep 2020",
+    "location": "Auburn Hills, MI",
     "img": "ds"
   },
   {
     "name": "Tesla",
     "title": "Software Engineer",
     "years": "Feb 2016 - Nov 2018",
+    "location": "Fremont, CA",
     "img": "tesla"
   },
   {
     "name": "Perceptron",
     "title": "Project Engineer",
     "years": "Aug 2014 - Jan 2016",
+    "location": "Plymouth, MI",
     "img": "perceptron"
   }
 ]
