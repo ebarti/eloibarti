@@ -23,7 +23,7 @@ import {
 
 const {Content} = Layout;
 const {
-    github, stackoverflow,
+    github, stackoverflow, linkedin,
 } = Config.social;
 
 const DomContent = () => (
@@ -39,9 +39,11 @@ const DomContent = () => (
             </div>
             <div className={`${badge} ${badgeGray}`}>Platform Security Lead Engineer</div>
             <div className="centerAlign box">
-                <a href={github} target="_blank" label="button" rel="noopener noreferrer"><FA name="github"/></a>
-                <a href={stackoverflow} target="_blank" label="button" rel="noopener noreferrer"><FA
-                    name="stack-overflow"/></a>
+                <a href={github} target="_blank" rel="noopener noreferrer"><FA name="github" ariaLabel="GitHub"/></a>
+                <a href={stackoverflow} target="_blank" rel="noopener noreferrer"><FA
+                    name="stack-overflow" ariaLabel="Stack Overflow"/></a>
+                <a href={linkedin} target="_blank" rel="noopener noreferrer"><FA
+                    name="linkedin" ariaLabel="LinkedIn"/></a>
             </div>
             <ul className={`box ${badge} contactBlock`}>
                 <li className={`${contactBlockItem}`}>

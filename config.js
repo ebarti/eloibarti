@@ -16,6 +16,7 @@ module.exports = {
     social: {
         github: 'https://github.com/ebarti',
         stackoverflow: 'https://stackoverflow.com/users/6643659/ebarti',
+        linkedin: 'https://www.linkedin.com/in/ebarti',
         tryhackme: 'https://tryhackme.com/p/eloib',
         rss: '/rss.xml',
     },
