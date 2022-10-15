@@ -51,7 +51,7 @@ module.exports = {
         metal: {
             name: 'Metal',
             description: 'Metal is a low-level, low-overhead hardware-accelerated 3D graphic and compute shader API created by Apple.',
-            color: '#6f309f',
+            color: '#309f64',
         },
         go: {
             name: 'go',
@@ -63,6 +63,10 @@ module.exports = {
             description: 'A general purpose programming language that is widely used for developing various applications.',
             color: '#f9c646',
         },
-
+        gatsbyjs: {
+            name: 'Gatsby.js',
+            description: 'A framework built over ReactJS to generate static page web application.',
+            color: '#6f309f',
+        },
     },
 };
