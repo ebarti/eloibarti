@@ -17,24 +17,18 @@ const AboutMe = () => {
                     Hello there! 👋
                 </h3>
                 <p>
-                    My name is <b>Eloi Barti Tremoleda</b>, and I am aMy name is Eloi Barti Tremoleda, and I am a senior
-                    engineering leader based in Barcelona.
+                    My name is <b>Eloi Barti Tremoleda</b>, and I am aMy name is Eloi Barti Tremoleda, and I am based in Barcelona.
                 </p>
                 <p>
-                    I do a bit of everything. Fullstack? Hmmm... not sure, although I've built this website myself 😊.
-                    Personal preference? Backend!
-                </p>
-                <p>
-                    I am eading Delivery Hero's Security Operations, composed of distributed teams across Europe, Middle
+                    I currently lead Delivery Hero's Security Operations, composed of distributed teams across Europe, Middle
                     East, Asia, and South America, aggregating to the following verticals:
-                    - Cyber Threat Intelligence (CTI)
-                    - Computer Security Incident Response Team (CSIRT)
-                    - Global Cloud Security (GCS)
-                    - Global Security Operations (GSOC)Leading Delivery Hero's Security Operations, composed of
-                    distributed teams across Europe, Middle East, Asia, and South America, aggregating to the following
-                    verticals: - Cyber Threat Intelligence (CTI) - Computer Security Incident Response Team (CSIRT) -
-                    Global Cloud Security (GCS) - Global Security Operations (GSOC)
                 </p>
+                <ul>
+                    <li>Cyber Threat Intelligence (CTI)</li>
+                    <li>Computer Security Incident Response Team (CSIRT)</li>
+                    <li>Global Cloud Security (GCS)</li>
+                    <li>Global Security Operations (GSOC)</li>
+                </ul>
             </div>
         </>
     );
