@@ -1,75 +1,102 @@
-import Recaptcha from "react-recaptcha"
-import { useForm, ValidationError } from "@formspree/react";
-import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
-import React from 'react';
+import { useForm, ValidationError } from '@formspree/react';
+import { useState } from 'react';
+
+import {
+    GoogleReCaptchaProvider,
+    useGoogleReCaptcha,
+} from 'react-google-recaptcha-v3';
 import "./eloi.css"
 
-
-const encode = data => {
-    return Object.keys(data)
-        .map((key) => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
-        .join('&')
-}
-
-function ContactForm() {
-    const [token, setToken] = React.useState(null)
-    const { executeRecaptcha } = useGoogleReCaptcha();
-
+const ContactForm = () => {
+    const {executeRecaptcha} = useGoogleReCaptcha();
+    const [failReCaptcha, setFailReCaptcha] = useState(false);
     const [state, handleSubmit] = useForm("mnqykkzp", {
-        data: { "g-recaptcha-response": executeRecaptcha }
+        data: {
+            "g-recaptcha-response": failReCaptcha ? () =>
+                    new Promise < string > ((resolve) => resolve('Nonsense!'))
+                : executeRecaptcha,
+        },
     });
 
-    React.useEffect(() => {
-        const script = document.createElement("script")
-        script.src = "https://www.google.com/recaptcha/api.js"
-        script.async = true
-        script.defer = true
-        document.body.appendChild(script)
-        script.onload = function() {
-            setScriptLoaded(true);
-        };
-    }, [])
-
-    const recaptchaConfig = {
-        key: process.env.SITE_RECAPTCHA_KEY,
-        secret: process.env.SITE_RECAPTCHA_SECRET,
-    }
-
     return (
-        <form onSubmit={handleSubmit}>
-            <div className=" contact-form-grid">
-                <label htmlFor="email">
-                    Email Address
-                </label>
-                <input
-                    id="email"
-                    type="email"
-                    name="email"
-                    className="text-field"
-                />
-                <ValidationError
-                    prefix="Email"
-                    field="email"
-                    errors={state.errors}
-                />
-                <textarea
-                    id="message"
-                    name="message"
-                    className="text-field"
-                />
-                <ValidationError
-                    prefix="Message"
-                    field="message"
-                    errors={state.errors}
-                />
-                <button type="submit" disabled={state.submitting}>
-                    Submit
-                </button>
-            </div>
-        </form>
+        <div>
+            {state && state.succeeded ? (
+                <h2>Your message has been sent successfully!</h2>
+            ) : (
+                <form onSubmit={handleSubmit}>
+                    <div className=" contact-form-grid">
+                        <div>
+                            <label htmlFor="email">
+                                Email Address
+                            </label>
+                            <input
+                                id="email"
+                                type="email"
+                                name="email"
+                                className="text-field"
+                            />
+                            <ValidationError
+                                prefix="Email"
+                                field="email"
+                                errors={state.errors}
+                            />
+                        </div>
+                        <div>
+                            <label htmlFor="name">
+                                Your Name
+                            </label>
+                            <textarea
+                                id="name"
+                                name="name"
+                                className="text-field contact-text-area"
+                            />
+                            <ValidationError
+                                prefix="Email"
+                                field="email"
+                                errors={state.errors}
+                            />
+                        </div>
+                    </div>
+                    <div>
+                        <textarea
+                            id="message"
+                            name="message"
+                            className="text-field contact-text-area"
+                        />
+                        <ValidationError
+                            prefix="Message"
+                            field="message"
+                            errors={state.errors}
+                        />
+                    </div>
+                    <div className="block">
+                        <label className="forCheckbox" htmlFor="failRecaptcha">
+                            Fail Recaptcha
+                        </label>
+                        <input
+                            id="failReCaptcha"
+                            type="checkbox"
+                            onChange={(ev) => {
+                                setFailReCaptcha(ev.target.checked);
+                            }}
+                        />
+                    </div>
+                    <div className="block">
+                        <ValidationError className="error" errors={state.errors}/>
+                    </div>
+                    <button type="submit" disabled={state.submitting}>
+                        {state.submitting ? 'Submitting...' : 'Submit'}
+                    </button>
+                </form>
+            )}
+        </div>
+    );
+};
 
-
-    )
-}
-
-export default ContactForm
+export default () => (
+    <GoogleReCaptchaProvider
+    reCaptchaKey=process.env.SITE_RECAPTCHA_KEY
+    >
+        <ContactForm/>
+    </GoogleReCaptchaProvider>
+);
