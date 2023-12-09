@@ -61,6 +61,7 @@ function ContactForm() {
                     fetch("https://formspree.io/f/mnqykkzp", {
                         method: "POST",
                         headers: {"Content-Type": "application/x-www-form-urlencoded"},
+                        mode: 'cors',
                         body: encode({
                             "form-name": "contact-form",
                             ...data,

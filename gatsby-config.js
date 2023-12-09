@@ -18,7 +18,7 @@ module.exports = {
         siteUrl: config.siteUrl,
         title: config.siteTitle,
         description: config.siteDescription,
-        image: `/static/favicon.png`
+        image: `static/favicon.png`
     },
     flags: {
         DEV_SSR: true
