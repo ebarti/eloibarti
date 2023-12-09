@@ -95,7 +95,7 @@ const ContactForm = () => {
 
 export default () => (
     <GoogleReCaptchaProvider
-    reCaptchaKey=process.env.SITE_RECAPTCHA_KEY
+    reCaptchaKey={process.env.SITE_RECAPTCHA_KEY}
     >
         <ContactForm/>
     </GoogleReCaptchaProvider>
