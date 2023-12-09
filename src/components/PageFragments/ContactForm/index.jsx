@@ -1,6 +1,6 @@
-import {ErrorMessage, Field, Form, Formik} from "formik"
 import Recaptcha from "react-recaptcha"
-
+import { useForm, ValidationError } from "@formspree/react";
+import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import React from 'react';
 import "./eloi.css"
 
@@ -13,7 +13,11 @@ const encode = data => {
 
 function ContactForm() {
     const [token, setToken] = React.useState(null)
-    const [scriptLoaded, setScriptLoaded] = React.useState(false);
+    const { executeRecaptcha } = useGoogleReCaptcha();
+
+    const [state, handleSubmit] = useForm("mnqykkzp", {
+        data: { "g-recaptcha-response": executeRecaptcha }
+    });
 
     React.useEffect(() => {
         const script = document.createElement("script")
@@ -32,89 +36,39 @@ function ContactForm() {
     }
 
     return (
-        scriptLoaded && <Formik
-            initialValues={{fullName: "", email: "", message: ""}}
-            validate={values => {
-                const errors = {}
-                if (!values.fullName) {
-                    errors.fullName = "Required"
-                } else if (values.fullName.length <= 1) {
-                    errors.fullName = "must be at least 2 characters"
-                }
-                if (!values.email) {
-                    errors.email = "Required"
-                } else if (
-                    !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)
-                ) {
-                    errors.email = "Invalid email address"
-                }
-                if (!values.message) {
-                    errors.message = "A message is required"
-                } else if (values.message.length <= 20) {
-                    errors.message = "I think you might be forgetting part of your message!"
-                }
-                return errors
-            }}
-            onSubmit={data => {
-                console.log(data)
-                if (token !== null) {
-                    fetch("https://formspree.io/f/mnqykkzp", {
-                        method: "POST",
-                        headers: {"Content-Type": "application/x-www-form-urlencoded"},
-                        mode: 'cors',
-                        body: encode({
-                            "form-name": "contact-form",
-                            ...data,
-                            "g-recaptcha-response": token,
-                        }),
-                    })
-                        .then(() => {
-                            alert("send")
-                        })
-                        .catch(error => alert(error))
-                }
-            }}
-        >
-            <Form
-                className="contact-form"
-                name="contact-form"
-                data-netlify="true"
-                data-netlify-honeypot="bot-field"
-                data-netlify-recaptcha="true"
-            >
-                <Field type="hidden" name="form-name"/>
-                <Field type="hidden" name="bot-field"/>
-                <div className=" contact-form-grid">
-                    <div>
-                        <Field name="fullName" type="text" className="text-field" placeholder="Enter your name"/>
-                        <ErrorMessage name="fullName"/>
-                    </div>
-                    <div>
-                        <Field name="email" type="text" className="text-field" placeholder="Enter your email"/>
-                        <ErrorMessage name="email"/>
-                    </div>
-                </div>
-                <div>
-                    <Field as="textarea" name="message" type="text" className="text-field contact-text-area"
-                           placeholder="Enter your message"/>
-                    <ErrorMessage name="message"/>
-                </div>
-                <Recaptcha
-                    className="w-form-formrecaptcha"
-                    sitekey={recaptchaConfig.key}
-                    render="explicit"
-                    theme="dark"
-                    size="normal"
-                    verifyCallback={response => {
-                        setToken(response)
-                    }}
-                    onloadCallback={() => {
-                        console.log("done loading!")
-                    }}
+        <form onSubmit={handleSubmit}>
+            <div className=" contact-form-grid">
+                <label htmlFor="email">
+                    Email Address
+                </label>
+                <input
+                    id="email"
+                    type="email"
+                    name="email"
+                    className="text-field"
                 />
-                <button type="submit" className="captcha-button">Submit</button>
-            </Form>
-        </Formik>
+                <ValidationError
+                    prefix="Email"
+                    field="email"
+                    errors={state.errors}
+                />
+                <textarea
+                    id="message"
+                    name="message"
+                    className="text-field"
+                />
+                <ValidationError
+                    prefix="Message"
+                    field="message"
+                    errors={state.errors}
+                />
+                <button type="submit" disabled={state.submitting}>
+                    Submit
+                </button>
+            </div>
+        </form>
+
+
     )
 }
 
