@@ -1,5 +1,5 @@
 import { useForm, ValidationError } from '@formspree/react';
-import { useState } from 'react';
+import { React } from 'react';
 
 import {
     GoogleReCaptchaProvider,
@@ -14,11 +14,11 @@ const recaptchaConfig = {
 
 const ContactForm = () => {
     const {executeRecaptcha} = useGoogleReCaptcha();
-    const [failReCaptcha, setFailReCaptcha] = useState(false);
+    const [failReCaptcha, setFailReCaptcha] = React.useState(false);
     const [state, handleSubmit] = useForm("mnqykkzp", {
         data: {
             "g-recaptcha-response": failReCaptcha ? () =>
-                    new Promise < string > ((resolve) => resolve('Nonsense!'))
+                    new Promise  ((resolve) => resolve('Nonsense!'))
                 : executeRecaptcha,
         },
     });
@@ -100,7 +100,7 @@ const ContactForm = () => {
 
 export default () => (
     <GoogleReCaptchaProvider
-    reCaptchaKey={recaptchaConfig.key}
+    reCaptchaKey={ process.env.SITE_RECAPTCHA_KEY }
     >
         <ContactForm/>
     </GoogleReCaptchaProvider>

@@ -8,28 +8,32 @@ const AboutMe = () => {
             <div>
                 <Head
                     title="About"
-                    description="My name is Eloi Barti Tremoleda, and I am a senior lead software engineer based in Barcelona, Spain."
+                    description="My name is Eloi Barti Tremoleda, and I am a senior engineering leader based in Barcelona, Spain."
                     path=""
-                    keywords={['Eloi', 'Barti', 'Tremoleda', 'Software Engineer', 'Senior', 'Security', 'Lead', 'Gatsby', 'Technology', 'AWS', 'Google Cloud', 'Platform']}
+                    keywords={['Eloi', 'Barti', 'Tremoleda', 'Software Engineer', 'Senior', 'Security', 'Operations', 'AI', 'Lead', 'Gatsby', 'Technology', 'AWS', 'Google Cloud', 'Platform']}
                 />
                 <h1 className="titleSeparate">About Me</h1>
                 <h3>
                     Hello there! 👋
                 </h3>
                 <p>
-                    My name is <b>Eloi Barti Tremoleda</b>, and I am a senior lead software engineer based in Barcelona,
-                    Spain.
+                    My name is <b>Eloi Barti Tremoleda</b>, and I am aMy name is Eloi Barti Tremoleda, and I am a senior
+                    engineering leader based in Barcelona.
                 </p>
                 <p>
                     I do a bit of everything. Fullstack? Hmmm... not sure, although I've built this website myself 😊.
                     Personal preference? Backend!
                 </p>
                 <p>
-                    I lead the Platform Security team at Glovo, within the Cyber-security department of Engineering.
-                    In my current job I am both an Individual Contributor (IC) and an Engineering Manager (EM):
-                    I manage the performance of my direct reports (as well as performing all the EM-related chores)
-                    while
-                    being a key contributor of the Cyber-security cluster.
+                    I am eading Delivery Hero's Security Operations, composed of distributed teams across Europe, Middle
+                    East, Asia, and South America, aggregating to the following verticals:
+                    - Cyber Threat Intelligence (CTI)
+                    - Computer Security Incident Response Team (CSIRT)
+                    - Global Cloud Security (GCS)
+                    - Global Security Operations (GSOC)Leading Delivery Hero's Security Operations, composed of
+                    distributed teams across Europe, Middle East, Asia, and South America, aggregating to the following
+                    verticals: - Cyber Threat Intelligence (CTI) - Computer Security Incident Response Team (CSIRT) -
+                    Global Cloud Security (GCS) - Global Security Operations (GSOC)
                 </p>
             </div>
         </>
