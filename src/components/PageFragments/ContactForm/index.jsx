@@ -16,11 +16,7 @@ function ContactForm() {
     const {executeRecaptcha} = useGoogleReCaptcha();
     const [failReCaptcha, setFailReCaptcha] = React.useState(false);
     const [state, handleSubmit] = useForm("mnqykkzp", {
-        data: {
-            "g-recaptcha-response": failReCaptcha ? () =>
-                    new Promise  ((resolve) => resolve('Nonsense!'))
-                : executeRecaptcha,
-        },
+        data: { "g-recaptcha-response": executeRecaptcha }
     });
 
     return (
@@ -50,10 +46,11 @@ function ContactForm() {
                             <label htmlFor="name">
                                 Your Name
                             </label>
-                            <textarea
+                            <input
                                 id="name"
                                 name="name"
-                                className="text-field contact-text-area"
+                                type="name"
+                                className="text-field"
                             />
                             <ValidationError
                                 prefix="Email"
