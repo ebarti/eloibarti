@@ -1,5 +1,5 @@
 import { useForm, ValidationError } from '@formspree/react';
-import  React  from 'react';
+import * as  React  from 'react';
 
 import {
     GoogleReCaptchaProvider,
@@ -7,14 +7,9 @@ import {
 } from 'react-google-recaptcha-v3';
 import "./eloi.css"
 
-const recaptchaConfig = {
-    key: process.env.SITE_RECAPTCHA_KEY,
-    secret: process.env.SITE_RECAPTCHA_SECRET,
-}
 
 function ContactForm() {
     const {executeRecaptcha} = useGoogleReCaptcha();
-    const [failReCaptcha, setFailReCaptcha] = React.useState(false);
     const [state, handleSubmit] = useForm("mnqykkzp", {
         data: { "g-recaptcha-response": executeRecaptcha }
     });
@@ -53,8 +48,8 @@ function ContactForm() {
                                 className="text-field"
                             />
                             <ValidationError
-                                prefix="Email"
-                                field="email"
+                                prefix="Name"
+                                field="name"
                                 errors={state.errors}
                             />
                         </div>
@@ -70,21 +65,6 @@ function ContactForm() {
                             field="message"
                             errors={state.errors}
                         />
-                    </div>
-                    <div className="block">
-                        <label className="forCheckbox" htmlFor="failRecaptcha">
-                            Fail Recaptcha
-                        </label>
-                        <input
-                            id="failReCaptcha"
-                            type="checkbox"
-                            onChange={(ev) => {
-                                setFailReCaptcha(ev.target.checked);
-                            }}
-                        />
-                    </div>
-                    <div className="block">
-                        <ValidationError className="error" errors={state.errors}/>
                     </div>
                     <button type="submit" disabled={state.submitting}>
                         {state.submitting ? 'Submitting...' : 'Submit'}
