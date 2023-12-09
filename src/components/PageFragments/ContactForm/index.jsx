@@ -13,6 +13,7 @@ const encode = data => {
 
 function ContactForm() {
     const [token, setToken] = React.useState(null)
+    const [scriptLoaded, setScriptLoaded] = React.useState(false);
 
     React.useEffect(() => {
         const script = document.createElement("script")
@@ -20,6 +21,9 @@ function ContactForm() {
         script.async = true
         script.defer = true
         document.body.appendChild(script)
+        script.onload = function() {
+            setScriptLoaded(true);
+        };
     }, [])
 
     const recaptchaConfig = {
@@ -28,7 +32,7 @@ function ContactForm() {
     }
 
     return (
-        <Formik
+        scriptLoaded && <Formik
             initialValues={{fullName: "", email: "", message: ""}}
             validate={values => {
                 const errors = {}
@@ -54,7 +58,7 @@ function ContactForm() {
             onSubmit={data => {
                 console.log(data)
                 if (token !== null) {
-                    fetch("/", {
+                    fetch("https://formspree.io/f/mnqykkzp", {
                         method: "POST",
                         headers: {"Content-Type": "application/x-www-form-urlencoded"},
                         body: encode({
