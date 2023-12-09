@@ -12,7 +12,7 @@ const recaptchaConfig = {
     secret: process.env.SITE_RECAPTCHA_SECRET,
 }
 
-const ContactForm = () => {
+function ContactForm() {
     const {executeRecaptcha} = useGoogleReCaptcha();
     const [failReCaptcha, setFailReCaptcha] = React.useState(false);
     const [state, handleSubmit] = useForm("mnqykkzp", {
@@ -98,10 +98,4 @@ const ContactForm = () => {
     );
 };
 
-export default () => (
-    <GoogleReCaptchaProvider
-    reCaptchaKey={ process.env.SITE_RECAPTCHA_KEY }
-    >
-        <ContactForm/>
-    </GoogleReCaptchaProvider>
-);
+export default ContactForm
