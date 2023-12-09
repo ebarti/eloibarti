@@ -7,6 +7,11 @@ import {
 } from 'react-google-recaptcha-v3';
 import "./eloi.css"
 
+const recaptchaConfig = {
+    key: process.env.SITE_RECAPTCHA_KEY,
+    secret: process.env.SITE_RECAPTCHA_SECRET,
+}
+
 const ContactForm = () => {
     const {executeRecaptcha} = useGoogleReCaptcha();
     const [failReCaptcha, setFailReCaptcha] = useState(false);
@@ -95,7 +100,7 @@ const ContactForm = () => {
 
 export default () => (
     <GoogleReCaptchaProvider
-    reCaptchaKey={process.env.SITE_RECAPTCHA_KEY}
+    reCaptchaKey={recaptchaConfig.key}
     >
         <ContactForm/>
     </GoogleReCaptchaProvider>
