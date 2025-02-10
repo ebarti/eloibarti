@@ -47,16 +47,15 @@ function Head({
                 return (
                     <>
                         <title>{title}</title>
-
                         <meta name="description" content={description}/>
-                        <meta name="image" content="https://www.eloibarti.com/favicon.png"/>
+                        <meta name="image" content={metaImageUrl}/>
                         <meta name="twitter:card" content="summary_large_image"/>
                         <meta name="twitter:title" content={title}/>
                         <meta name="twitter:url" content={pageUrl}/>
                         <meta name="twitter:description" content={description}/>
-                        <meta name="twitter:image" content="https://www.eloibarti.com/favicon.png"/>
+                        <meta name="twitter:image" content={metaImageUrl}/>
                         <meta name="twitter:creator" content={Config.author}/>
-                        <link rel="favicon.png" href="https://www.eloibarti.com/favicon.png"/>
+                        <link rel="icon" href="/favicon.png" type="image/x-icon"/>
                     </>
                 );
             }}
