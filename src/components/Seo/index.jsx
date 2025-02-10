@@ -41,7 +41,7 @@ function Head({
                 );
                 const metaImageUrl = Utils.resolveUrl(
                     Config.siteUrl,
-                    imageUrl || data.file.childImageSharp.gatsbyImageData,
+                    imageUrl
                 );
 
                 return (
@@ -49,14 +49,14 @@ function Head({
                         <title>{title}</title>
 
                         <meta name="description" content={description}/>
-                        <meta name="image" content={metaImageUrl}/>
+                        <meta name="image" content="https://www.eloibarti.com/favicon.png"/>
                         <meta name="twitter:card" content="summary_large_image"/>
                         <meta name="twitter:title" content={title}/>
                         <meta name="twitter:url" content={pageUrl}/>
                         <meta name="twitter:description" content={description}/>
-                        <meta name="twitter:image" content={metaImageUrl}/>
+                        <meta name="twitter:image" content="https://www.eloibarti.com/favicon.png"/>
                         <meta name="twitter:creator" content={Config.author}/>
-                        <link rel="favicon.png" href="static/favicon.png"/>
+                        <link rel="favicon.png" href="https://www.eloibarti.com/favicon.png"/>
                     </>
                 );
             }}
