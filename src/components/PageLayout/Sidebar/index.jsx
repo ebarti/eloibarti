@@ -37,7 +37,7 @@ const DomContent = () => (
                     <span>Barti</span>
                 </h2>
             </div>
-            <div className={`${badge} ${badgeGray}`}>Platform Security Lead Engineer</div>
+            <div className={`${badge} ${badgeGray}`}>Director of Business IT & Security</div>
             <div className="centerAlign box">
                 <a href={github} target="_blank" rel="noopener noreferrer"><FA name="github" ariaLabel="GitHub"/></a>
                 <a href={stackoverflow} target="_blank" rel="noopener noreferrer"><FA
@@ -51,7 +51,7 @@ const DomContent = () => (
             <FeatherIcon size="19" icon="briefcase"/>
               {' '}
           </span>
-                    &nbsp; &nbsp; Glovo
+                    &nbsp; &nbsp; Welltech
                 </li>
                 <li className={`${contactBlockItem}`}>
                     <span><FeatherIcon size="19" icon="map-pin"/></span>
