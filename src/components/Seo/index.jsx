@@ -89,7 +89,7 @@ Head.propTypes = {
 Head.defaultProps = {
     lang: 'en_US',
     contentType: 'website',
-    imageUrl: null,
+    imageUrl: "https://www.eloibarti.com/favicon.png",
     keywords: [],
     translations: [],
     meta: [],
