@@ -34,7 +34,7 @@ function Head({
                 const metaKeywords = keywords && keywords.length > 0
                     ? {name: 'keywords', content: keywords.join(', ')}
                     : [];
-                const pageUrl = Utils.resolvePageUrl(
+                const pageUrl = Utils.resolveUrl(
                     Config.siteUrl,
                     Config.pathPrefix,
                     path,
@@ -49,13 +49,24 @@ function Head({
                         <title>{title}</title>
                         <meta name="description" content={description}/>
                         <meta name="image" content={metaImageUrl}/>
-                        <meta name="twitter:card" content="summary_large_image"/>
+                        <link rel="icon" href="/favicon.png" type="image/x-icon"/>
+
+                        <!-- Facebook Meta Tags -->
+                        <meta property="og:url" content={pageUrl}/>
+                        <meta property="og:type" content={contentType}/>
+                        <meta property="og:title" content={title}/>
+                        <meta property="og:description" content={description}/>
+                        <meta property="og:image" content={metaImageUrl}/>
+
+                        <!-- Twitter Meta Tags -->
+                        <meta name="twitter:card" content={description}/>
+                        <meta name="twitter:image" content={metaImageUrl}/>
+                        <meta property="twitter:domain" content="eloibarti.com"/>
+                        <meta property="twitter:url" content={pageUrl}/>
                         <meta name="twitter:title" content={title}/>
-                        <meta name="twitter:url" content={pageUrl}/>
                         <meta name="twitter:description" content={description}/>
                         <meta name="twitter:image" content={metaImageUrl}/>
                         <meta name="twitter:creator" content={Config.author}/>
-                        <link rel="icon" href="/favicon.png" type="image/x-icon"/>
                     </>
                 );
             }}

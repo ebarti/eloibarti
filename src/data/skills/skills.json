@@ -1,43 +1,43 @@
 [
   {
     "text": "Go",
-    "percent": 95
+    "percent": 85
   },
   {
     "text": "C++",
-    "percent": 85
+    "percent": 80
   },
   {
     "text": "C",
-    "percent": 80
+    "percent": 75
   },
   {
     "text": ".NET",
-    "percent": 80
+    "percent": 65
   },
   {
     "text": "Java",
-    "percent": 85
+    "percent": 75
   },
   {
     "text": "Python",
-    "percent": 95
+    "percent": 90
   },
   {
     "text": "Terraform",
-    "percent": 95
+    "percent": 90
   },
   {
     "text": "Observability",
-    "percent": 95
+    "percent": 90
   },
   {
     "text": "Docker",
-    "percent": 95
+    "percent": 80
   },
   {
     "text": "Kubernetes",
-    "percent": 75
+    "percent": 65
   },
   {
     "text": "Amazon Web Services (AWS)",
@@ -49,6 +49,6 @@
   },
   {
     "text": "Cyber-security",
-    "percent": 95
+    "percent": 90
   }
 ]
