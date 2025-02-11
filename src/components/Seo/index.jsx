@@ -34,7 +34,7 @@ function Head({
                 const metaKeywords = keywords && keywords.length > 0
                     ? {name: 'keywords', content: keywords.join(', ')}
                     : [];
-                const pageUrl = Utils.resolvePageUrl(
+                const pageUrl = Utils.resolveUrl(
                     Config.siteUrl,
                     Config.pathPrefix,
                     path,
@@ -65,7 +65,6 @@ function Head({
                         <meta property="twitter:url" content={pageUrl}/>
                         <meta name="twitter:title" content={title}/>
                         <meta name="twitter:description" content={description}/>
-                        <meta name="twitter:image" content={metaImageUrl}/>
                         <meta name="twitter:creator" content={Config.author}/>
                     </>
                 );
