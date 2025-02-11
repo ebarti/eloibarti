@@ -34,7 +34,7 @@ function Head({
                 const metaKeywords = keywords && keywords.length > 0
                     ? {name: 'keywords', content: keywords.join(', ')}
                     : [];
-                const pageUrl = Utils.resolveUrl(
+                const pageUrl = Utils.resolvePageUrl(
                     Config.siteUrl,
                     Config.pathPrefix,
                     path,
