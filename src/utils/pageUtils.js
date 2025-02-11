@@ -15,7 +15,6 @@ const Utils = {
                 += (resolvedUrl === '' ? '' : '/') + urlPath.replace(/^\/|\/$/g, '');
         }
 
-        resolvedUrl = resolvedUrl[0] !== '/' ? `/${resolvedUrl}` : resolvedUrl;
         return resolvedUrl;
     }, ''),
     /**
@@ -25,7 +24,9 @@ const Utils = {
      * @return {string} Resolved url with trailing slash.
      */
     resolvePageUrl: (...path) => {
-        return Utils.resolveUrl(...path);
+        let resolvedUrl = Utils.resolveUrl(...path);
+        resolvedUrl = resolvedUrl[0] !== '/' ? `/${resolvedUrl}` : resolvedUrl;
+        return resolvedUrl;
     },
     /**
      * Get an ordered list of suggested posts for a single post.
